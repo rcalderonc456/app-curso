@@ -1,4 +1,3 @@
-import React from "react";
 import { useForm } from "react-hook-form";
 import { useAuth } from "./context/AuthContext";
 import { useEffect } from "react";
@@ -10,11 +9,11 @@ function LoginPage() {
     const navigate = useNavigate();
     useEffect(() => {
         if (isAuthenticated) navigate('/tasks');
-    }, [isAuthenticated]);
-
-    const onSubmit = handleSubmit((async values => {
-        const res = await signin(values);
-    }))
+    }, [isAuthenticated, navigate]);
+    
+    const onSubmit = handleSubmit(async values => {
+        await signin(values);
+    });
 
     return (<div className="flex items-center justify-center h-screen">
         <div className="bg-zinc-800 max-w-screen-md w-full p-10 rounded-md">
@@ -36,7 +35,7 @@ function LoginPage() {
                 <button type='submit'>Login</button>
             </form>
             <p className="flex gap-x-2 justify-between">
-            Don't have an account? <Link to="/register" className="text-sky-500">Sign Up</Link>
+            Don&apos;t have an account? <Link to="/register" className="text-sky-500">Sign Up</Link>
             </p>
         </div>
     </div>)

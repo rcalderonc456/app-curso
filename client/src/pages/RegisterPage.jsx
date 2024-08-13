@@ -1,4 +1,4 @@
-import React from 'react'
+// import React from 'react' // Remove unused import
 import { useForm } from "react-hook-form";//va a manejar el estado y el submit action
 import { useAuth } from "./context/AuthContext";
 import { useEffect } from 'react';
@@ -11,7 +11,7 @@ function RegisterPage() {
 
   useEffect(() => {
     if (isAuthenticated) navigate('/tasks');
-  }, [isAuthenticated])
+  }, [isAuthenticated, navigate]) // Add 'navigate' to the dependency array
   const onSubmit = handleSubmit((async values => {
     await signup(values);
   }));

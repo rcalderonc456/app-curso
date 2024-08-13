@@ -6,6 +6,7 @@ import ProfilePage from "./pages/ProfilePage";
 import TaskFormPage from "./pages/TaskFormPage";
 import TaskPage from "./pages/TaskPage";
 import ProtectedRoute from "./pages/ProtectedRoute";
+import Navbar from "./pages/Navbar";
 import { AuthProvider } from "./pages/context/AuthContext";
 import { TaskProvider } from "./pages/context/TasksContext";
 
@@ -15,6 +16,8 @@ function App() {
     <AuthProvider>
       <TaskProvider>
       <BrowserRouter>
+      <main className="container mx-auto px-10">
+      <Navbar/>
         <Routes>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/login" element={<LoginPage />}></Route>
@@ -26,6 +29,7 @@ function App() {
             <Route path="/profile" element={<ProfilePage />}></Route>
           </Route>
         </Routes>
+        </main>
       </BrowserRouter>
       </TaskProvider>
     </AuthProvider>)
