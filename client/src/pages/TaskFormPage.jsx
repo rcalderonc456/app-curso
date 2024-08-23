@@ -32,13 +32,16 @@ function TaskFormPage() {
             }
         }
         loadTask();
-    }, [])
+    }, [params.id, getTask, setValue])
 
     return (
         <div className="bg-zinc-800 max-w-md w-full rounded-md">
             <form onSubmit={onSubmit}>
                 <input type="text" className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder="Title" {...register("title")} autoFocus ></input>
                 <textarea rows="3" className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md my-2" placeholder="Description" {...register("description")}></textarea>
+                <button type="button" onClick={() => navigate(`/tasks/${params.id}/subtasks/new`)}>
+                    Add Subtask
+                </button>
                 <button> Save</button>
             </form>
         </div>

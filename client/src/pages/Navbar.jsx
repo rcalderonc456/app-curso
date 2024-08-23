@@ -19,6 +19,9 @@ function Navbar(){
     <Link to="/add-task">Add Task</Link>
 </li>
 <li>
+    <Link to="/tasks">View Tasks</Link>
+</li>
+<li>
     <Link to="/" onClick={() =>{
         logout()
     }}> Logout</Link>
